@@ -21,4 +21,4 @@ COPY --from=builder /usr/src/app/node_modules node_modules
 # COPY --from=builder /usr/src/app/src/middleware/*.ts src/middleware/
 COPY --from=builder /usr/src/app/package.json .
 
-CMD [ "npm", "run", "serve" ]
+CMD [ "npm", "run", "prod" ]

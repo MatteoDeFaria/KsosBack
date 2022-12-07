@@ -7,7 +7,7 @@
     "start": "node dist/server.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "NODE_ENV=production node dist/server.js",
+    "prod": "node dist/server.js",
     "local:node": "nodemon --watch dist dist/server.js",
     "local:ts": "tsc -w",
     "local": "concurrently -k -p \"[{name}]\" -n \"Typescript,Node\" -c \"cyan.bold,green.bold\" \"npm run local:ts\" \"npm run local:node\""
