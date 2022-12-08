@@ -1,7 +1,12 @@
 import express from "express";
 
-const router = express.Router();
+export default async () => {
+  const router = express.Router();
 
-router.get("/health", (_, res) => {
-  res.status(200).send();
-});
+
+  router.get("/health", (req, res) => {
+    res.status(200).send("Server up");
+  });
+
+  return router;
+};
