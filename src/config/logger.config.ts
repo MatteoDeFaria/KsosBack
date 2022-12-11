@@ -1,5 +1,5 @@
-import winston from "winston";
-import expressWinston from "express-winston";
+import winston from 'winston';
+import expressWinston from 'express-winston';
 
 /*
 const levels = {
@@ -15,13 +15,13 @@ const levels = {
 
 const createLoggerConfig = (logLevel?: string) => {
   const defaultLogLevel =
-    process.env.NODE_ENV === "production" ? "info" : "debug";
+    process.env.NODE_ENV === 'production' ? 'info' : 'debug';
   return [
     new winston.transports.Console({
       level: logLevel || defaultLogLevel,
       format: winston.format.combine(
         winston.format.timestamp({
-          format: "DD-MM-YYYY HH:mm:ss",
+          format: 'DD-MM-YYYY HH:mm:ss',
         }),
         winston.format.simple(),
         winston.format.printf((msg) =>
@@ -54,8 +54,6 @@ const createLogger = (logLevel?: string) => {
 
 class Logger {
   private static instance: winston.Logger;
-
-  private constructor() {}
 
   public static get Instance() {
     if (!Logger.instance) Logger.instance = createLogger();
