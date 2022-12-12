@@ -41,11 +41,18 @@ class LolService implements ILolService {
       )
     );
 
-    return Promise.all(listOfApiCall).then((element) =>
+    const result = await Promise.all(listOfApiCall).then((element) =>
       element
         .flat()
         .filter((elem: UserInfo) => elem.queueType === 'RANKED_SOLO_5x5')
     );
+
+    return result.map((element: UserInfo) => ({
+        ...element,
+        tier:
+          element.tier.charAt(0) +
+          element.tier.substring(1).toLocaleLowerCase(),
+      }));
   }
 }
 
