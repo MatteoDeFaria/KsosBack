@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import routeBuilder from './routes/index';
 import ErrorMiddleware from './middleware/ErrorMiddleware';
 import LolService from './service/lol/LolService';
@@ -13,6 +14,7 @@ const initApp = async () => {
   //  app.set("hostname", process.env.HOSTNAME || "0.0.0.0");
   app.set('prefix', '/api');
 
+  app.use(cors());
   app.use(express.json());
 
   app.use('/api', await routeBuilder(new LolService()));
