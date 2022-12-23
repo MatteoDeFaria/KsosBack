@@ -13,8 +13,11 @@ const BodyValidationMiddleware =
     validate(body, { forbidUnknowValues: true }).then((error) => {
       if (error.length > 0) {
         logger.debug(error);
-        next(new Error ("Body error"));
-      } else next();
+        next(new Error('Body error'));
+      } else {
+        res.locals.input = body;
+        next();
+      }
     });
   };
 
